@@ -1,0 +1,94 @@
+// Custom
+@import "custom";
+
+// TESTING
+.card{
+	color: black;
+	background-color: $csgray;
+	
+	.card-header{
+		background-color: $csorange;
+		color: white;
+	}
+}
+// TESTING
+
+
+body {
+	background-color: $cswhite;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+section {
+	margin-bottom: 100px !important;
+
+	@include phone {
+		margin-bottom: 50px !important;
+	}
+}
+
+.bg-dark-orange{
+	background-color: $csdarkorange;
+}
+
+.co-orange{
+	color: $csorange !important;
+}
+
+// HOME
+// Section 1
+#welcome{
+	padding-top: 50px;
+	height: 500px;
+	@include tablet {
+		height: 300px;
+	}
+	@include background('../img/landingpage-jumbotron.png');
+}
+
+#text-title{
+	font-size: 96px;
+
+	@include desktop {
+		font-size: 64px;
+	}
+	@include tablet {
+		font-size: 48px;
+	}
+	@include phone {
+		font-size: 32px;
+	}
+}
+
+#img-title{
+	text-align: right;
+
+	@include desktop {
+		> img {
+			height: 250px;
+		}
+	}
+	@include tablet {
+		text-align: center !important;
+
+		> img {
+			height: 100px !important;
+		}
+	}
+}
+
+
+// Section 3
+#home-3{
+	background-color: $csgray;
+
+	#img-container{
+		background-color: $csorange;
+	}
+}

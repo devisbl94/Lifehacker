@@ -1,0 +1,27 @@
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+@mixin bigphone {
+  @media (max-width: #{$bigphone-width}) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
