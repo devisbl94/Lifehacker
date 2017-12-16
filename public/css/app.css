@@ -8804,11 +8804,6 @@ body {
   font-size: 16px;
 }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 section {
   margin-bottom: 100px !important;
 }
@@ -8827,11 +8822,15 @@ section {
   color: #EE712B !important;
 }
 
+.tiny {
+  font-size: 0.9rem;
+}
+
 #welcome {
   padding-top: 50px;
   height: 500px;
   background-image: url("../img/landingpage-jumbotron.png");
-  background-position: 0 0;
+  background-position: fixed;
   background-repeat: no-repeat;
 }
 
@@ -8841,25 +8840,47 @@ section {
   }
 }
 
-#text-title {
+.text-title {
   font-size: 96px;
 }
 
 @media (max-width: 1024px) {
-  #text-title {
+  .text-title {
     font-size: 64px;
   }
 }
 
 @media (max-width: 768px) {
-  #text-title {
+  .text-title {
     font-size: 48px;
   }
 }
 
 @media (max-width: 425px) {
-  #text-title {
+  .text-title {
     font-size: 32px;
+  }
+}
+
+.text-small-title {
+  font-size: 24px;
+}
+
+@media (max-width: 1024px) {
+  .text-small-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-small-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .text-small-title {
+    font-size: 16px;
   }
 }
 
@@ -8883,9 +8904,12 @@ section {
 }
 
 #home-3 {
-  background-color: #F1E9E3;
+  background-color: #EE712B;
 }
 
-#home-3 #img-container {
-  background-color: #EE712B;
+@media (min-width: 1025px) {
+  #home-3 img {
+    max-height: 400px;
+    text-align: center;
+  }
 }
