@@ -16,7 +16,6 @@ const thisExists = (param) => {
 }
 
 // HOME
-
 if (thisExists(IdSelector('fake-btn'))) {
 	let fakeBtn = IdSelector('fake-btn');
 	fakeBtn.addEventListener("click", () => {

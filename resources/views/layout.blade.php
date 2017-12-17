@@ -70,7 +70,7 @@
 	<footer class="bg-dark-orange text-white p-lg-5 p-sm-3">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-4 p-5">
 					<ul class="list-unstyled">
 						<p class="lead">lorem ipsum</p>
 						<li>item 1</li>
@@ -84,11 +84,9 @@
 					<h4>Made with ❤</h4>
 					<h6><a href="https://github.com/devisbl94" target="_blank">the mastermind behind all this</a></h6>
 				</div>
-				<div class="col-sm-4"></div>
 			</div>
 		</div>
 	</footer>
-
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
