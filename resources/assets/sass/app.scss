@@ -25,6 +25,15 @@ footer {
 		font-weight: bold;
 	}
 }
+form {
+	background-color: $csdarkorange;
+	border-radius: 5px;
+	color: $white;
+	box-shadow: 7px 7px darken($csgray, 10%);
+	@include tablet {
+		padding: 0.75rem;
+	}
+}
 .bg-dark-orange{
 	background-color: $csdarkorange;
 }
@@ -51,7 +60,7 @@ footer {
 	padding-top: 50px;
 	height: 500px;
 	@include tablet {
-		height: 300px;
+		height: 350px;
 	}
 	@include background('../img/landingpage-jumbotron.png', fixed);
 }
@@ -101,6 +110,10 @@ footer {
 		}
 	}
 }
+#btn-title {
+    width: 10em;
+    box-shadow: 7px 7px rgba(0,0,0,0.3);
+}
 
 // Section 3
 #home-3 {
@@ -138,12 +151,4 @@ footer {
 #home-6 {
 	background-color: $cswhite;
 	color: $csorange;
-	form {
-		background-color: $csdarkorange;
-		border-radius: 5px;
-		color: $white;
-		@include tablet {
-			padding: 0.75rem;
-		}
-	}
 }

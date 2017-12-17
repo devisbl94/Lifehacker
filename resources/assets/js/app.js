@@ -11,17 +11,10 @@ const IdSelector = (param) => {
 	return document.querySelector(`#${param}`);
 }
 
-const thisExists = (param) => {
-	return typeof param !== 'undefined' ? true : false;
-}
-
 // HOME
-if (thisExists(IdSelector('fake-btn'))) {
-	let fakeBtn = IdSelector('fake-btn');
-	fakeBtn.addEventListener("click", () => {
-		alert("Told 'ya");
-	})
-}
+IdSelector('fake-btn').addEventListener("click", () => {
+	alert("Told 'ya");
+});
 
 $('.carousel').carousel({
   interval: 0

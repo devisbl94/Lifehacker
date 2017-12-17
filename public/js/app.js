@@ -763,23 +763,16 @@ module.exports = __webpack_require__(35);
 __webpack_require__(9);
 
 var IdSelector = function IdSelector(param) {
-	return document.querySelector('#' + param);
-};
-
-var thisExists = function thisExists(param) {
-	return typeof param !== 'undefined' ? true : false;
+  return document.querySelector('#' + param);
 };
 
 // HOME
-if (thisExists(IdSelector('fake-btn'))) {
-	var fakeBtn = IdSelector('fake-btn');
-	fakeBtn.addEventListener("click", function () {
-		alert("Told 'ya");
-	});
-}
+IdSelector('fake-btn').addEventListener("click", function () {
+  alert("Told 'ya");
+});
 
 $('.carousel').carousel({
-	interval: 0
+  interval: 0
 });
 
 /***/ }),

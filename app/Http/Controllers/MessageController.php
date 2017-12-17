@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\Http\Requests\MessageRequest;
 use Illuminate\Http\Request;
+use App\Events\MessageReceived;
 
 class MessageController extends Controller
 {
@@ -33,9 +35,11 @@ class MessageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MessageRequest $request)
     {
-        //
+        $message = Message::create($request->all());
+        event(new MessageReceived($message));
+        return redirect()->route('success');
     }
 
     /**

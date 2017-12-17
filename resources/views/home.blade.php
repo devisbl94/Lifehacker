@@ -9,6 +9,7 @@
 				</div>
 				<div class="col-md-8 col-xs-12 text-center align-self-center">
 					<p class="text-white"><span id="text-title" class="text-title">lifehacker</span><br><span class="text-small-title">take control of your life, just a few clicks away</span></p>
+					<a id="btn-title" class="btn btn-primary" href="{{ route('login') }}">Try it &raquo;</a>
 				</div>
 			</div>
 		</div>
@@ -140,22 +141,43 @@
 				<img class="img-fluid align-self-center mx-auto" src="{{ asset('img/section4img.png') }}">
 			</div>
 			<div class="col-sm-5 p-5 p-sm-2 align-self-center">
-				{{-- {!! Form::open(['url' => route('message.store')]) !!} --}}
-				{!! Form::open(['class' => 'p-lg-5 p-sm-4']) !!}
-
+				{!! Form::open(['url' => route('message.store'), 'class' => 'p-lg-5 p-sm-4']) !!}
 					<div class="form-group">
-						<input type="text" name="name" class="form-control" placeholder="Your name">
+						<input type="text" name="name" class="form-control" placeholder="Your name" required>
+						{!! $errors->first('name', 
+							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								:message
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>'
+						) !!}
 					</div>
 					<div class="form-group">
-						<input type="email" name="email" class="form-control" placeholder="Your email">
+						<input type="email" name="email" class="form-control" placeholder="Your email" required>
+						{!! $errors->first('email', 
+							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								:message
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>'
+						) !!}
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" placeholder="Write something..." rows="5"></textarea>
+						<textarea name="message" class="form-control" placeholder="Write something..." rows="5" required></textarea>
+						{!! $errors->first('message', 
+							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								:message
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>'
+						) !!}
 					</div>
 					<div class="form-group pt-5">
 						<input type="submit" class="btn btn-secondary btn-block" name="" value="Send!">
 					</div>
-
 				{!! Form::close() !!}
 			</div>
 		</div>

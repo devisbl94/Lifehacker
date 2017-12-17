@@ -8809,6 +8809,20 @@ footer a, footer a:hover {
   font-weight: bold;
 }
 
+form {
+  background-color: #DC4712;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-box-shadow: 7px 7px #e0cec1;
+          box-shadow: 7px 7px #e0cec1;
+}
+
+@media (max-width: 768px) {
+  form {
+    padding: 0.75rem;
+  }
+}
+
 .bg-dark-orange {
   background-color: #DC4712;
 }
@@ -8845,7 +8859,7 @@ footer a, footer a:hover {
 
 @media (max-width: 768px) {
   #welcome {
-    height: 300px;
+    height: 350px;
   }
 }
 
@@ -8918,6 +8932,12 @@ footer a, footer a:hover {
   }
 }
 
+#btn-title {
+  width: 10em;
+  -webkit-box-shadow: 7px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 7px 7px rgba(0, 0, 0, 0.3);
+}
+
 #home-3 {
   background-color: #EE712B;
 }
@@ -8957,16 +8977,4 @@ footer a, footer a:hover {
 #home-6 {
   background-color: #FBF7F7;
   color: #EE712B;
-}
-
-#home-6 form {
-  background-color: #DC4712;
-  border-radius: 5px;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  #home-6 form {
-    padding: 0.75rem;
-  }
 }
