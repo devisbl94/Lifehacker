@@ -19,35 +19,35 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 }
-
-// main {
-// 	max-width: 1200px;
-// 	margin: 0 auto;
-// }
-
-section {
-	margin-bottom: 100px !important;
-
-	@include phone {
-		margin-bottom: 50px !important;
+footer {
+	a, a:hover {
+		color: white;
+		font-weight: bold;
 	}
 }
-
 .bg-dark-orange{
 	background-color: $csdarkorange;
 }
-
 .co-orange{
 	color: $csorange !important;
 }
-
-.tiny{
-	font-size: 0.9rem;
+.container-img-center{
+	text-align: center;
+}
+.box-shadow-tb {
+	max-width: 100% !important;
+	box-shadow: inset 0px 11px 18px -10px lighten(#000, 10%), inset 0px -11px 18px -10px lighten(#000, 10%);
+}
+.box-shadow-hide {
+	@include bigphone {
+		box-shadow: none;
+	}
 }
 
 // HOME
 // Section 1
 #welcome{
+	margin-bottom: 0 !important;
 	padding-top: 50px;
 	height: 500px;
 	@include tablet {
@@ -55,7 +55,6 @@ section {
 	}
 	@include background('../img/landingpage-jumbotron.png', fixed);
 }
-
 .text-title{
 	font-size: 96px;
 
@@ -69,24 +68,21 @@ section {
 		font-size: 32px;
 	}
 }
-
 .text-small-title{
-	font-size: 24px;
+	font-size: 32px;
 
 	@include desktop {
-		font-size: 20px;
+		font-size: 24px;
 	}
 	@include tablet {
-		font-size: 18px;
+		font-size: 20px;
 	}
 	@include phone {
-		font-size: 16px;
+		font-size: 18px;
 	}
 }
-
 #img-title{
 	text-align: right;
-
 	@include desktop {
 		> img {
 			height: 250px;
@@ -96,20 +92,58 @@ section {
 		text-align: center !important;
 
 		> img {
+			height: 150px !important;
+		}
+	}
+	@include smalltablet {
+		> img {
 			height: 100px !important;
 		}
 	}
 }
 
-
 // Section 3
-#home-3{
+#home-3 {
 	background-color: $csorange;
+}
 
-	img {
-		@include bigdesktop {
-			max-height: 400px;
-			text-align: center;
+// Section 4
+#home-4 {
+	color: $csdarkorange !important;
+	#carousel-home {
+		.testimony-item {
+			padding: 3rem !important;
+		}
+		.carousel-control-prev {
+			left: -100px;
+			@include tablet {
+				left: 0;
+			}
+		}
+		.carousel-control-next {
+			right: -100px;
+			@include tablet {
+				right: 0;
+			}
+		}
+	}
+}
+
+// Section 5
+#home-5 {
+	background-color: $csorange;
+}
+
+// Section 6
+#home-6 {
+	background-color: $cswhite;
+	color: $csorange;
+	form {
+		background-color: $csdarkorange;
+		border-radius: 5px;
+		color: $white;
+		@include tablet {
+			padding: 0.75rem;
 		}
 	}
 }

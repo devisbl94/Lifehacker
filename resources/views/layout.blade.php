@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="{{ asset('vendor\font-awesome-4.7.0\css\font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
@@ -67,7 +67,27 @@
 		</section> --}}
 	</main>
 
-	<footer></footer>
+	<footer class="bg-dark-orange text-white p-lg-5 p-sm-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<ul class="list-unstyled">
+						<p class="lead">lorem ipsum</p>
+						<li>item 1</li>
+						<li>item 2</li>
+						<li>item 3</li>
+						<li>item 4</li>
+					</ul>
+				</div>
+				<div class="col-sm-4 align-self-center text-center">
+					<h2>Powered by <a href="https://laravel.com/" target="_blank">Laravel</a></h2>
+					<h4>Made with ❤</h4>
+					<h6><a href="https://github.com/devisbl94" target="_blank">the mastermind behind all this</a></h6>
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+	</footer>
 
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>

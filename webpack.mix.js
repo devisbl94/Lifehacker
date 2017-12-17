@@ -12,14 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-	/*
-	.scripts([
-	    'resourses/assets/js/admin.js',
-	    'resourses/assets/js/dashboard.js'
-	], 'public/js/all.js')
-	*/
-   .sass('resources/assets/sass/app.scss', 'public/css')
-	   .options({
-	      processCssUrls: false
-	   })
-   .browserSync('http://localhost:8000');
+	.sass('resources/assets/sass/app.scss', 'public/css')
+		.options({
+			processCssUrls: false
+		})
+	.browserSync('http://localhost:8000');

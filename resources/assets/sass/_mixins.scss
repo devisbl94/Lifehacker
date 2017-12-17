@@ -20,6 +20,11 @@
     @content;
   }
 }
+@mixin smalltablet {
+  @media (max-width: #{$tablet-width - 1}) {
+    @content;
+  }
+}
 @mixin bigphone {
   @media (max-width: #{$bigphone-width}) {
     @content;
