@@ -7,7 +7,7 @@
 				<h3 class="co-orange">Sign up</h3>
 			</div>
 		</div>
-		<div class="row justify-content-xs-center justify-content-sm-center justify-content-md-center justify-content-lg-center">
+		<div class="row justify-content-center">
 			<div class="col-xs-10 col-sm-8 col-md-6">
 				{!! Form::open(['method' => 'POST', 'class' => 'p-lg-5 p-sm-4']) !!}
 					<div class="form-group">
@@ -52,7 +52,7 @@
 				{!! Form::close() !!}
 			</div>
 		</div>
-		<div class="row justify-content-xs-center justify-content-sm-center justify-content-md-center justify-content-lg-center p-5">
+		<div class="row justify-content-center p-5">
 			<div class="col-xs-10 col-sm-8 col-md-6 text-center">
 				Already have an account? <a href="{{ route('login') }}">sign in</a>
 			</div>

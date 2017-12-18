@@ -70,22 +70,6 @@
 
 		@yield('content')
 
-		{{-- <section class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="card">
-						<div class="card-header">
-							Featured
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">Special title treatment</h4>
-							<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> --}}
 	</main>
 
 	<footer class="bg-dark-orange text-white p-lg-5 p-sm-3">

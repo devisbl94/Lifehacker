@@ -47,11 +47,61 @@ form {
 	max-width: 100% !important;
 	box-shadow: inset 0px 11px 18px -10px lighten(#000, 10%), inset 0px -11px 18px -10px lighten(#000, 10%);
 }
+.no-shadow {
+	box-shadow: none;
+	padding: 0 !important;
+}
 .box-shadow-hide {
 	@include bigphone {
 		box-shadow: none;
 	}
 }
+.pagination {
+	justify-content: center !important;
+	li:first-child a, li:first-child span {
+	  margin-left: 0;
+	  border-top-left-radius: 0.25rem;
+	  border-bottom-left-radius: 0.25rem;
+	}
+
+	li:last-child a, li:last-child span {
+	  border-top-right-radius: 0.25rem;
+	  border-bottom-right-radius: 0.25rem;
+	}
+
+	li.active a, li.active span {
+	  z-index: 2;
+	  color: #fff;
+	  background-color: #EE712B;
+	  border-color: #EE712B;
+	}
+
+	li.disabled a, li.disabled span {
+	  color: #868e96;
+	  pointer-events: none;
+	  background-color: #fff;
+	  border-color: #ddd;
+	}
+
+	a, span {
+	  position: relative;
+	  display: block;
+	  padding: 0.5rem 0.75rem;
+	  margin-left: -1px;
+	  line-height: 1.25;
+	  color: #EE712B;
+	  background-color: #fff;
+	  border: 1px solid #ddd;
+	}
+
+	a:focus, a:hover, span:focus, span:hover {
+	  color: #bd4e0f;
+	  text-decoration: none;
+	  background-color: #e9ecef;
+	  border-color: #ddd;
+	}
+}
+
 
 // HOME
 // Section 1

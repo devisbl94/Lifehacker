@@ -6,6 +6,7 @@ use App\Message;
 use App\Http\Requests\MessageRequest;
 use Illuminate\Http\Request;
 use App\Events\MessageReceived;
+use Illuminate\Support\Facades\Cache;
 
 class MessageController extends Controller
 {
@@ -16,7 +17,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::paginate(5);
+        return view('message.index', compact('messages'));
     }
 
     /**
@@ -39,6 +41,7 @@ class MessageController extends Controller
     {
         $message = Message::create($request->all());
         event(new MessageReceived($message));
+        Cache::flush();
         return redirect()->route('success');
     }
 
@@ -48,9 +51,18 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show($id)
     {
-        //
+        try {
+            $message = Cache::remember("message.".$id, 1, function() use ($id){
+                return Message::findOrFail($id);
+            });
+            return view('message.show', compact('message'));
+        } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return redirect()
+                    ->route('message.index')
+                    ->with('error', 'Message does not exist.');
+        }
     }
 
     /**
@@ -59,7 +71,7 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
+    public function edit($id)
     {
         //
     }
@@ -71,7 +83,7 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update(MessageRequest $request, $id)
     {
         //
     }
@@ -82,8 +94,12 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($id)
     {
-        //
+        Message::destroy($id);
+        Cache::flush();
+        return redirect()
+                ->route('message.index')
+                ->with('info', 'Message deleted.');
     }
 }
