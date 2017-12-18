@@ -53,6 +53,8 @@
 								<span class="caret"></span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="{{ route('task.index') }}">Tasks</a>
+								<div class="dropdown-divider"></div>
 								@if (auth()->user()->name == 'ADMIN')
 									<a class="dropdown-item" href="{{ route('message.index') }}">Messages</a>
 									<div class="dropdown-divider"></div>
