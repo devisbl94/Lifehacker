@@ -143,7 +143,7 @@
 			<div class="col-sm-5 p-5 p-sm-2 align-self-center">
 				{!! Form::open(['url' => route('message.store'), 'class' => 'p-lg-5 p-sm-4']) !!}
 					<div class="form-group">
-						<input type="text" name="name" class="form-control" placeholder="Your name" required>
+						<input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
 						{!! $errors->first('name', 
 							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								:message
@@ -154,7 +154,7 @@
 						) !!}
 					</div>
 					<div class="form-group">
-						<input type="email" name="email" class="form-control" placeholder="Your email" required>
+						<input type="email" id="email" name="email" class="form-control" placeholder="Your email" required>
 						{!! $errors->first('email', 
 							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								:message
@@ -165,7 +165,7 @@
 						) !!}
 					</div>
 					<div class="form-group">
-						<textarea name="message" class="form-control" placeholder="Write something..." rows="5" required></textarea>
+						<textarea id="message" name="message" class="form-control" placeholder="Write something..." rows="5" required></textarea>
 						{!! $errors->first('message', 
 							'<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								:message
@@ -176,7 +176,7 @@
 						) !!}
 					</div>
 					<div class="form-group pt-5">
-						<input type="submit" class="btn btn-secondary btn-block" name="" value="Send!">
+						<input type="submit" id="submit-contact" class="btn btn-secondary btn-block" name="" value="Send!" disabled>
 					</div>
 				{!! Form::close() !!}
 			</div>

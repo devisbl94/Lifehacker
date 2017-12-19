@@ -31,7 +31,7 @@ class Autoresponder
         
         Mail::send('emails.received', ['msg' => $message], function ($email) use ($message) {
             $email->to($message->email, $message->name)
-                ->subject('Mensaje fue recibido de ' . $message->name);
+                ->subject('You\'ve got a message from ' . $message->name);
         });
     }
 }

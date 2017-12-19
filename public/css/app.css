@@ -8788,16 +8788,6 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 
-.card {
-  color: black;
-  background-color: #F1E9E3;
-}
-
-.card .card-header {
-  background-color: #EE712B;
-  color: white;
-}
-
 body {
   background-color: #FBF7F7;
   font-family: 'Raleway', sans-serif;
@@ -8831,8 +8821,20 @@ form {
   color: #EE712B !important;
 }
 
+.co-black {
+  color: black !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
 .container-img-center {
   text-align: center;
+}
+
+.btn-width {
+  width: 6em;
 }
 
 .box-shadow-tb {
@@ -8844,6 +8846,7 @@ form {
 .no-shadow {
   -webkit-box-shadow: none;
           box-shadow: none;
+  background-color: transparent !important;
   padding: 0 !important;
 }
 
@@ -9032,4 +9035,18 @@ form {
 #home-6 {
   background-color: #FBF7F7;
   color: #EE712B;
+}
+
+.task-notes {
+  text-decoration: none !important;
+}
+
+.task-notes :hover {
+  -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+.task-notes :hover * {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }

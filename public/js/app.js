@@ -746,7 +746,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(35);
+module.exports = __webpack_require__(34);
 
 
 /***/ }),
@@ -763,16 +763,59 @@ module.exports = __webpack_require__(35);
 __webpack_require__(9);
 
 var IdSelector = function IdSelector(param) {
-  return document.querySelector('#' + param);
+	return document.querySelector('#' + param);
+};
+
+var addListenerMulti = function addListenerMulti(element, eventNames, listener) {
+	var events = eventNames.split(' ');
+	for (var i = 0, iLen = events.length; i < iLen; i++) {
+		element.addEventListener(events[i], listener, false);
+	}
+};
+
+var checkBool = function checkBool(param) {
+	var cont = 0;
+
+	param.forEach(function (value) {
+		if (value[1]) {
+			cont++;
+		}
+	});
+
+	return cont;
 };
 
 // HOME
 IdSelector('fake-btn').addEventListener("click", function () {
-  alert("Told 'ya");
+	alert("Told 'ya");
 });
 
 $('.carousel').carousel({
-  interval: 0
+	interval: 0
+});
+
+var auxname = false,
+    auxemail = false,
+    auxmessage = false;
+
+var vars = [[IdSelector('name'), auxname], [IdSelector('email'), auxemail], [IdSelector('message'), auxmessage]];
+
+var submitContact = IdSelector('submit-contact');
+
+vars.forEach(function (value) {
+	addListenerMulti(value[0], 'keyup change', function (event) {
+		if (value[0].value.length > 2) {
+			value[1] = true;
+		} else {
+			value[1] = false;
+		}
+
+		if (checkBool(vars) == 3) {
+			submitContact.disabled = false;
+		} else {
+			submitContact.disabled = true;
+		}
+	});
 });
 
 /***/ }),
@@ -18492,8 +18535,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 34 */,
-/* 35 */
+/* 34 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

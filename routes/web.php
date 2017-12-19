@@ -11,6 +11,10 @@
 |
 */
 
+// DB::listen(function($query){
+// 	echo "<pre>{{ $query->sql }}</pre>";
+// });
+
 Route::get('/', 'PagesController@home')->name('home');
 Route::get('success', 'PagesController@success')->name('success');
 
@@ -24,7 +28,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('message', 'MessageController');
 
-
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('task', 'TaskController');
+	Route::resource('task', 'TaskController');
 });

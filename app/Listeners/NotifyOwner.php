@@ -32,7 +32,7 @@ class NotifyOwner
         Mail::send('emails.received', ['msg' => $message], function ($email) use ($message) {
             $email->to(config('mail.from.address'), config('mail.from.name'))
                 ->from($message->email, $message->name)
-                ->subject('Tienes un mensaje en tu sitio');
+                ->subject('Someone has sended a message!');
         });
     }
 }
