@@ -67,11 +67,10 @@
 			<div class="row">
 				<div class="col-sm-4 p-5">
 					<ul class="list-unstyled">
-						<p class="lead">lorem ipsum</p>
-						<li>item 1</li>
-						<li>item 2</li>
-						<li>item 3</li>
-						<li>item 4</li>
+						<p class="lead">or use this one instead</p>
+						<li><a href="https://keep.google.com/" target="_blank">Google Keep</a></li>
+						<li><a href="https://keep.google.com/" target="_blank">Google Keep</a></li>
+						<li><a href="https://keep.google.com/" target="_blank">Google Keep</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-4 align-self-center text-center">
