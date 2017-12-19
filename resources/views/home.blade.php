@@ -129,7 +129,6 @@
 			</div>
 		</div>
 	</section>
-
 	<section id="home-6" class="container-fluid py-5 box-shadow-tb box-shadow-hide">
 		<div class="row mb-3">
 			<div class="col-12">
@@ -141,7 +140,7 @@
 				<img class="img-fluid align-self-center mx-auto" src="{{ asset('img/section4img.png') }}">
 			</div>
 			<div class="col-sm-5 p-5 p-sm-2 align-self-center">
-				{!! Form::open(['url' => route('message.store'), 'class' => 'p-lg-5 p-sm-4']) !!}
+				{!! Form::open(['url' => route('message.store'), 'method' => 'POST', 'class' => 'p-lg-5 p-sm-4']) !!}
 					<div class="form-group">
 						<input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
 						{!! $errors->first('name', 

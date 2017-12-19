@@ -5,14 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Document</title>
+	<title>lifehacker - take control of your life, just a few clicks away</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/vendor/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body class="mt-5">
 	
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark-orange fixed-top">
 			<a class="navbar-brand" href="{{ route('home') }}">lifehacker</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -20,25 +22,11 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="{{ route('home') }}">Home</a>
+					<li class="nav-item">
+						<a id="link-welcome" class="nav-link" href="{{ route('home') }}#welcome">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
+						<a id="link-home-6" class="nav-link" href="{{ route('home') }}#home-6">Contact</a>
 					</li>
 				</ul>
 			    <ul class="navbar-nav">

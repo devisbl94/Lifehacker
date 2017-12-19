@@ -26,8 +26,7 @@ Route::post('login', 'Auth\LoginController@login');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::resource('message', 'MessageController');
-
 Route::group(['middleware' => ['auth']], function() {
 	Route::resource('task', 'TaskController');
+	Route::resource('message', 'MessageController');
 });

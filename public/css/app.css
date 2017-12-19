@@ -8794,6 +8794,11 @@ body {
   font-size: 16px;
 }
 
+nav {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px 0px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px 0px;
+}
+
 footer a, footer a:hover {
   color: white;
   font-weight: bold;
@@ -8823,6 +8828,10 @@ form {
 
 .co-black {
   color: black !important;
+}
+
+.round-border {
+  border-radius: 5px;
 }
 
 .bg-white {

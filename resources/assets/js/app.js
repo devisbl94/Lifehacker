@@ -5,10 +5,43 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+// require
 require('./bootstrap');
 
+// functions
 const IdSelector = (param) => {
 	return document.querySelector(`#${param}`);
+}
+
+const scrollIt = (destination, duration = 200) => {
+
+    const start = window.pageYOffset;
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+    const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+    const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
+    const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+
+    if ('requestAnimationFrame' in window === false) {
+        window.scroll(0, destinationOffsetToScroll);
+        return;
+    }
+
+    function scroll() {
+        const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+        const time = Math.min(1, ((now - startTime) / duration));
+        const timeFunction = time * (2 - time);
+        window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - start)) + start));
+
+        if (window.pageYOffset === destinationOffsetToScroll) {
+            return;
+        }
+
+        requestAnimationFrame(scroll);
+    }
+
+    scroll();
 }
 
 const addListenerMulti = (element, eventNames, listener) => {
@@ -30,17 +63,26 @@ const checkBool = (param) => {
 	return cont;
 }
 
-// HOME
-IdSelector('fake-btn').addEventListener("click", () => {
-	alert("Told 'ya");
-});
-
+// init
 $('.carousel').carousel({
   interval: 0
 });
 
-let auxname = false, auxemail = false, auxmessage = false;
+// events
+// HOME
+IdSelector('link-welcome').addEventListener("click", event => {
+    scrollIt(IdSelector('welcome'), 600);
+});
 
+IdSelector('link-home-6').addEventListener("click", event => {
+    scrollIt(IdSelector('home-6'), 600);
+});
+IdSelector('fake-btn').addEventListener("click", () => {
+	alert("Told 'ya");
+});
+
+// Validate contact form
+let auxname = false, auxemail = false, auxmessage = false;
 let vars = [
 	[IdSelector('name'), auxname],
 	[IdSelector('email'), auxemail],
@@ -64,3 +106,4 @@ vars.forEach(value => {
 		}
 	});
 })
+

@@ -6,6 +6,9 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 }
+nav {
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px 0px;
+}
 footer {
 	a, a:hover {
 		color: white;
@@ -29,6 +32,9 @@ form {
 }
 .co-black{
 	color: black !important;
+}
+.round-border {
+	border-radius: 5px;
 }
 .bg-white {
 	background-color: white !important;

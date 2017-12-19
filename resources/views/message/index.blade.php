@@ -36,7 +36,7 @@
 		</div>
 		<div class="row">
 			<div class="col-8 offset-2">
-				<table class="table table-responsive-sm table-hover">
+				<table class="table table-responsive-sm table-hover table-striped bg-white round-border">
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -57,7 +57,9 @@
 						@endforeach
 					</tbody>
 				</table>
-				{!! $messages->links() !!}
+				@if (count($messages))
+					{!! $messages->links() !!}
+				@endif
 			</div>
 		</div>
 	</div>

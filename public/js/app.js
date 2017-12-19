@@ -760,62 +760,106 @@ module.exports = __webpack_require__(34);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+// require
 __webpack_require__(9);
 
+// functions
 var IdSelector = function IdSelector(param) {
-	return document.querySelector('#' + param);
+  return document.querySelector('#' + param);
+};
+
+var scrollIt = function scrollIt(destination) {
+  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
+
+
+  var start = window.pageYOffset;
+  var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+  var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+  var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+  var destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
+  var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+
+  if ('requestAnimationFrame' in window === false) {
+    window.scroll(0, destinationOffsetToScroll);
+    return;
+  }
+
+  function scroll() {
+    var now = 'now' in window.performance ? performance.now() : new Date().getTime();
+    var time = Math.min(1, (now - startTime) / duration);
+    var timeFunction = time * (2 - time);
+    window.scroll(0, Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start));
+
+    if (window.pageYOffset === destinationOffsetToScroll) {
+      return;
+    }
+
+    requestAnimationFrame(scroll);
+  }
+
+  scroll();
 };
 
 var addListenerMulti = function addListenerMulti(element, eventNames, listener) {
-	var events = eventNames.split(' ');
-	for (var i = 0, iLen = events.length; i < iLen; i++) {
-		element.addEventListener(events[i], listener, false);
-	}
+  var events = eventNames.split(' ');
+  for (var i = 0, iLen = events.length; i < iLen; i++) {
+    element.addEventListener(events[i], listener, false);
+  }
 };
 
 var checkBool = function checkBool(param) {
-	var cont = 0;
+  var cont = 0;
 
-	param.forEach(function (value) {
-		if (value[1]) {
-			cont++;
-		}
-	});
+  param.forEach(function (value) {
+    if (value[1]) {
+      cont++;
+    }
+  });
 
-	return cont;
+  return cont;
 };
 
-// HOME
-IdSelector('fake-btn').addEventListener("click", function () {
-	alert("Told 'ya");
-});
-
+// init
 $('.carousel').carousel({
-	interval: 0
+  interval: 0
 });
 
+// events
+// HOME
+IdSelector('link-welcome').addEventListener("click", function (event) {
+  scrollIt(IdSelector('welcome'), 600);
+});
+
+IdSelector('link-home-6').addEventListener("click", function (event) {
+  scrollIt(IdSelector('home-6'), 600);
+});
+IdSelector('fake-btn').addEventListener("click", function () {
+  alert("Told 'ya");
+});
+
+// Validate contact form
 var auxname = false,
     auxemail = false,
     auxmessage = false;
-
 var vars = [[IdSelector('name'), auxname], [IdSelector('email'), auxemail], [IdSelector('message'), auxmessage]];
 
 var submitContact = IdSelector('submit-contact');
 
 vars.forEach(function (value) {
-	addListenerMulti(value[0], 'keyup change', function (event) {
-		if (value[0].value.length > 2) {
-			value[1] = true;
-		} else {
-			value[1] = false;
-		}
+  addListenerMulti(value[0], 'keyup change', function (event) {
+    if (value[0].value.length > 2) {
+      value[1] = true;
+    } else {
+      value[1] = false;
+    }
 
-		if (checkBool(vars) == 3) {
-			submitContact.disabled = false;
-		} else {
-			submitContact.disabled = true;
-		}
-	});
+    if (checkBool(vars) == 3) {
+      submitContact.disabled = false;
+    } else {
+      submitContact.disabled = true;
+    }
+  });
 });
 
 /***/ }),
