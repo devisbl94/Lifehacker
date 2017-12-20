@@ -125,7 +125,7 @@ class TaskController extends Controller
     {
         try {
             $task = Cache::remember("task.".$id, 1, function() use ($id){
-                return Task::findOrFail($id);
+                return Task::where('user_id', Auth::user()->id)->findOrFail($id);
             });
             return view('task.show', compact('task'));
         } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
